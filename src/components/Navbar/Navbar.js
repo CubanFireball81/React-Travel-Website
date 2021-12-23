@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from './Button';
+import { Button } from '../Buttons/Button';
 import './Navbar.css';
 
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
+    //Handles button click logic, Toggles state true or false
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
+    //Logic to show/hide Hamburger Menu
     const showButton = () => {
         if(window.innerWidth <= 960) {
             setButton(false);
@@ -18,13 +20,19 @@ function Navbar() {
         }
     };
 
+    //Ensures refresh doesn't re-render an object that should be hidden
+    useEffect(() =>  {
+        showButton();
+    }, []);
+
+    //Triggers Hamburger menu icon when window is resized to specifications in showButton
     window.addEventListener('resize', showButton);
 
     return (
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo">
+                    <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
                         TRAVEL <i className="fab fa-typo3" />
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
