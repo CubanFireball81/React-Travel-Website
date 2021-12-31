@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# React Travel Website Project by Alejando Santiago 2021
+
+## Project Information
+
+This is a project that I made for the Nucamp Bootcamp I attended from 2021-2022. The object of the project is to demonstrate one's ability to create and work with React. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
